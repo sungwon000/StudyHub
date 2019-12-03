@@ -510,6 +510,55 @@ th {
 			}, 15000);
 		});
 	</script>
+	<!-- 스터디룸 조회수 게시글 top5 -->
+  <!-- <section class="section" style="padding-top: 0px;">
+      <h3>스터디룸 게시글 조회수 TOP 5 목록</h3>
+      <table id="tb" border="1">
+         <thead>
+            <tr>
+               <th>번호</th>
+               <th>제목</th>
+               <th>모집 상태</th>
+               <th>날자</th>
+            </tr>
+         </thead>
+         <tbody></tbody>
+      </table>
+   <script>
+      function topList() {
+         $.ajax({
+            url: "topList.bo",
+            dataType: "json",
+            success: function(data) {
+               $tableBody = $("#tb tbody");
+               $tableBody.html("");
+               
+               for(var i in data){
+                  var $tr = $("<tr>");
+                  var $bId = $("<td align='center' class='aa'>").text(data[i].bo_number);
+                  var $bTitle = $("<td align='center'>").text(decodeURIComponent(data[i].bo_title.replace(/\+/g, " ")));
+                  var $bWriter = $("<td align='center' class='bb'>").text(data[i].bo_complete);
+                  var $bCreateDate = $("<td align='center'>").text(data[i].bo_date);
+                  
+                  $tr.append($bId);
+                  $tr.append($bTitle);
+                  $tr.append($bWriter);
+                  $tr.append($bCreateDate);
+                  
+                  $tableBody.append($tr);
+               }
+            }
+         });
+      }
+      $(function(){
+         topList();
+         
+         setInterval(function(){
+            topList();
+         }, 5000);
+      });
+   </script>
+   </section> --!>
 
 	<!-- 유용한 싸이트 링크 슬라이드 -->
 	<section style="background-color: white; padding-top: 20px;">
